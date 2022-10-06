@@ -17,8 +17,9 @@ function deleteToDo(event) {                    // event : 삭제 button 클릭
           // event : 클릭
                   // target : 클릭된 엘리먼트
                          // parentElement : 클릭된 엘리먼트의 부모 (li)
-  console.log(li.id)
   li.remove()   // 클릭된 li 지우기
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id))  // 필터 기능을 통해 내가 클릭한 li를 제외한 나머지 li만 새로 배열하겠다
+  saveToDos()    // 로컬스토리지에 저장하는 함수 실행
 }
 
 function paintToDo(newTodo) {                   // handleToDoSubmit함수의 newTodo(폼에 입력한 value)값 들고오기
@@ -69,6 +70,8 @@ if (savedToDos !== null) {       // 로컬 스토리지에 저장된 값이 있�
   // parsedToDos의 배열 대한 각각의 아이템에 대한 함수를 실행
   paintToDo({text:'a'})
 }
+
+
 
 
 
